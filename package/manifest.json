@@ -123,21 +123,23 @@
   ],
   "candidate": {
     "name": "my harness",
-    "method": "guava-native-feedback-v2",
+    "method": "guava-terminal-evidence-v3",
     "factory": "hs_guava:my_harness",
     "fidelity": "tf_variant",
     "status": "development_only",
     "measured_improvement": null,
     "categories": [
+      "observation_grounding",
       "agentic_orchestration",
       "execution_monitoring"
     ],
     "settings": {
-      "max_cues": 2
+      "max_checks": 1
     },
     "recovery_turn_cost": 0,
-    "history": "complete native conversation; bounded public failure notes only",
-    "automatic_recovery_tools": 0
+    "history": "complete native conversation; one completion-inspection feedback note",
+    "automatic_recovery_tools": 0,
+    "max_inspection_tools": 1
   },
   "budgets": {
     "unit": "model_decision",

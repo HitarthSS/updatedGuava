@@ -355,9 +355,9 @@ class Campaign:
                     # This is a small development safety gate, not a superiority test.
                     dev = [read(Path(g['directory'])/'AUDITED.json') for g in groups if g['phase']=='development']
                     totals = {arm: sum(g['arms'][arm]['successes'] for g in dev) for arm in ('baseline','candidate')}
-                    passed = totals['candidate'] >= totals['baseline'] - 1
+                    passed = totals['candidate'] >= totals['baseline']
                     write(self.root/'DEVELOPMENT_GATE.json', {'passed': passed, 'successes': totals,
-                        'episodes_per_arm': 14, 'allowed_success_deficit': 1,
+                        'episodes_per_arm': 14, 'allowed_success_deficit': 0,
                         'criterion': 'reject substantial development regression; not evidence of improvement'})
                     if not passed:
                         raise RuntimeError('Candidate failed development regression gate; final cases not started')

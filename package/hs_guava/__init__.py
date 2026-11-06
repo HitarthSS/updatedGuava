@@ -20,15 +20,15 @@ def authors():
 def my_harness():
     from harnessstudio.core.method import MethodConfig, ModuleRef, Fidelity, Budgets
     return MethodConfig(
-        name='guava-native-feedback-v2', version='0.2.0', paper='arXiv:2606.18363',
+        name='guava-terminal-evidence-v3', version='0.3.0', paper='arXiv:2606.18363',
         fidelity=Fidelity.TF_VARIANT,
-        substitutions=('At most two public failure cues in otherwise native conversation',),
-        description='My harness: native Guava history with bounded failure feedback; development validation required',
-        categories=('agentic_orchestration', 'execution_monitoring'),
+        substitutions=('One native perception check and model review before accepting completion; all turns charged',),
+        description='My harness: bounded public terminal evidence check; development validation required',
+        categories=('observation_grounding', 'agentic_orchestration', 'execution_monitoring'),
         required=frozenset({'act'}),
-        controller=ModuleRef('hs_guava.native_feedback:NativeFeedbackController', {'max_cues': 2}),
+        controller=ModuleRef('hs_guava.terminal_evidence:TerminalEvidenceController', {'max_checks': 1}),
         null='shadow', budgets=Budgets(policy_calls=30), trainable_parameters=0,
         card={'admission': 'development_only', 'step_unit': 'budgeted semantic turn',
-              'automatic_recovery_tools': 0, 'physical_execution_counter': 'benchmark-owned',
+              'automatic_motion_tools': 0, 'max_inspection_tools': 1, 'physical_execution_counter': 'benchmark-owned',
               'original_runtime_parity': 'pending', 'accuracy_claim': None},
     )

@@ -1,98 +1,55 @@
-# My harness for Guava — native feedback v2
+# My harness for Guava — terminal evidence v3
 
-Experimental, frozen-policy harness code for the [paper](https://arxiv.org/abs/2606.18363). The evaluated behavior is in [`package/hs_guava/native_feedback.py`](package/hs_guava/native_feedback.py). Original authorship and source are credited in [NOTICE.md](NOTICE.md).
+Training-free completion verification around the frozen [Guava agent](https://arxiv.org/abs/2606.18363), evaluated through HarnessStudio. Current candidate: [`TerminalEvidenceController`](package/hs_guava/terminal_evidence.py).
 
-## Results
+## Status and results
 
-| Reference | Result |
+**v3 is a new experiment. Its final success rate is not available yet.** It must pass the seen development gate before the fresh 120-case comparison starts. See [design and protocol](DESIGN_V3.md).
 
-| --- | --- |
+| Experiment | Authors’ harness | My harness |
+| --- | --- | --- |
+| Previous native-feedback v2, 120 starts | 112/120 (93.33%) | 111/120 (92.50%) |
+| Terminal-evidence v3 | Pending matched evaluation | Pending matched evaluation |
 
-| Paper / official release | Guava-4B unseen-task mean: 90.8%, 240 paper episodes |
+The paper reports 90.8% on 240 unseen-task episodes. Our 120-case evaluations are reduced subsets with different starts. Original source/adapter replay matches turns 0–4 but diverges at turn 5; comparisons remain **provisional adapter comparisons**, not exact paper reproductions. The old v2 code/registration is preserved in [its original commit](https://github.com/HitarthSS/updatedGuava/tree/a43dba8e27108087547e20dc39dd904781b81611). Files in `results/summary.json` and `results/interpretation.json` describe v2 until a separately labeled v3 report is added.
 
-| Our run of the authors' harness | 112/120 (93.33%) |
+## What v3 changes
 
-| **My harness** | **111/120 (92.50%)** |
+1. Let the same frozen model act normally with its complete native conversation.
+2. At its first `complete` declaration, if at least two turns remain, execute one native perception tool for the last publicly named grasp/alignment target. With no previous target, inspect the gripper position.
+3. Supply the fresh image/tool result with a bounded completion-review note. The model decides whether to correct the task or stop. Check at most once per episode; add no automatic manipulation.
 
+The proposed completion turn pays for the inspection; review consumes the next ordinary turn. Every model query corresponds to one charged decision. No oracle success, simulator object state, task-name special cases, weight updates or paid API calls are used.
 
-Eight released unseen task definitions, fifteen fresh seeds each, plus a physical shadow-null arm. Final seed base 10042; separate seen development.
+Categories: `observation_grounding`, `execution_monitoring`, `agentic_orchestration`.
 
+## Models and setup
 
-These are reduced or explicitly qualified experiments. They do not establish full-paper reproduction or a confirmed benchmark win. See [evaluation details](EVALUATION.md) and the compact records in [results/](results/).
+- Frozen `AIcell/guava-v13b-qwen3.5-4b`, revision `19a8c77544cf7c161966f49bbb2654b85c6b2fa3`.
+- Existing gated `facebook/sam3` checkpoint. No new models are required.
+- Guava source `8eeed908bef4fb63c8bfc7c4e2fa2f5684eb067f`; HarnessStudio `785515ff63cacf70617a1bc884cf8e118ce75b85`.
+- Prepare the upstream Linux/NVIDIA simulator and serving environments. Install this plugin with `python -m pip install -e package` in the compatible HarnessStudio runtime. Model weights, simulator assets and environments are external dependencies.
+- `hs_guava:authors` registers the reference controller; `hs_guava:my_harness` registers v3. The policy server permits loopback model endpoints only.
 
-## What my harness changes
-
-1. Preserve the complete native Guava conversation, images, assistant outputs and tool feedback.
-
-2. Append at most two short public failure cues after explicit empty grasps, repeated tool errors or repeated motions with no observed change.
-
-3. Let the same frozen model choose every action. No automatic alignment/action replay or extra model calls.
-
-
-Categories: `execution_monitoring`, `agentic_orchestration`.
-
-## Models and inputs
-
-- AIcell/guava-v13b-qwen3.5-4b at 19a8c77544cf7c161966f49bbb2654b85c6b2fa3, plus gated facebook/sam3.
-
-- HarnessStudio at 785515ff63cacf70617a1bc884cf8e118ce75b85; policy transport is loopback-only.
-
-
-Policy weights remain frozen. Model checkpoints and benchmark assets must be obtained from their original releases under their own access terms. No paid LLM/VLM API is required by the published variant.
-
-## Start here
-
-1. Use a Linux GPU host for simulator/model evaluation. Read the [pinned upstream setup](https://github.com/hdacnw/guava-release) before installing its model stack.
-2. Controller dependency: Install the pinned HarnessStudio runtime and package/.
-3. Inspect `configs/method.json` and `provenance/upstream.json`.
-4. Verify the source-only export and inspect the core API:
+## Checks
 
 ```sh
-python3 tools/verify_export.py
 PYTHONPATH=package:package/tests python -m unittest discover -s package/tests -v
+python -m unittest test_plan test_initial_audit test_null_audit -v
+python tools/verify_export.py
 ```
 
+41 package tests and 19 runner/audit tests passed in the existing evaluation environment. HarnessStudio admission tiers 0 and 1 passed. These checks do not establish real-simulator accuracy or original-source parity.
 
-CPU checks validate code behavior or packaging only. They do not run the robot benchmark or demonstrate numerical parity on a new GPU/runtime.
+## New evaluation
 
-## Integrate with the frozen policy
+- One seen smoke case, then seven seen tasks × two development starts.
+- Require no development success deficit, no horizon/provenance violations; freeze the design before final evaluation.
+- Eight released unseen tasks × fifteen fresh starts: 120 cases for authors’ harness and my harness, plus 120 physical shadow-null controls.
+- Final seed base 20042; development base 6200; smoke base 19000. Previously evaluated starts are excluded. Earlier final failures were used for diagnosis, so task definitions are known to the designer.
+- Preserve 25/30 semantic turns per task and the released 500,000 native control-call horizon; no multiplier. Inspection and review consume existing turns.
+- Audit exact physical starts and bounded initial-render roundoff. Keep the unresolved source/adapter parity gap visible.
 
-Read [the integration contract and arm definitions](docs/INTEGRATION.md).
+`run_campaign.py` runs the gated comparison after upstream runtime/assets are prepared; it is not a universal installer. The current Sudarshan retry uses GPU 5 for the frozen model/simulation and GPU 6 for SAM3. GPU indices are allocation-specific.
 
-Install the pinned HarnessStudio and pip install -e package. Register hs_guava:authors and hs_guava:my_harness; the latter selects NativeFeedbackController. The retained run_campaign.py is the audited native/custom-benchmark driver.
-
-
-The core harness is reusable. Integration snapshots and historical experiment drivers are included for inspection; full fresh-machine simulator reproduction has not been revalidated during this publication. Prepare the pinned native environment and required assets before using those drivers. No benchmark is automatically launched by cloning, importing, or verifying this repository.
-
-## Evaluation budget
-
-25/30 semantic turns per task and the released 500,000-control-call simulator horizon. Every action is metered; no multiplier.
-
-
-Use identical tasks, initial states, seeds, models and budgets for the authors' harness and my harness. Charge every executed recovery/intervention to the action limit. Separate development and final cases, freeze the design before evaluation, and report all completed matched cases.
-
-## Repository map
-
-- `package/hs_guava/native_feedback.py`: main harness behavior.
-- `configs/`: method and evaluation metadata.
-- `results/`: compact measured outcomes and their interpretation.
-- `provenance/`: source/model pins and export hashes.
-- `tools/verify_export.py`: offline source integrity check.
-- `reference/`, `integration/`, or `experiments/`, when present: native-loop snapshots.
-
-## Known limitations
-
-- The revised candidate did not improve accuracy or compute: 1,038 versus 1,051 VLM calls.
-
-- Original-source replay parity diverged at turn 5 and remains unresolved. Results are a provisional adapter comparison.
-
-- Exact physical starts are required; a disclosed initial-render tolerance permits <=26 pixels at 512x512 to differ by one channel level. Raw images are unchanged.
-
-- The earlier latest-image v1 was rejected after development regression and is not pooled with these results.
-
-
-Shared-GPU wall-clock measurements are descriptive. New checkpoints, a new serving runtime, different seeds or changed horizon enforcement require a newly labeled comparison.
-
-## Publication checks
-
-32 CPU tests passed. All exported Python parses, shell scripts pass `bash -n`, relative documentation links resolve, and source files pass a credential-pattern scan. See [validation](provenance/validation.json). A complete GPU benchmark was not rerun for this publication.
+[Attribution](NOTICE.md) · [Design](DESIGN_V3.md) · [Previous evaluation limitations](EVALUATION.md)

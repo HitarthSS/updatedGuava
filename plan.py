@@ -48,8 +48,12 @@ def build(root):
         plan['reproduction'] = json.loads((root/'RUN_MODE.json').read_text())
     write(root / 'PLAN120.json', plan)
     groups = []
-    for phase, selected, episodes, seed in [('smoke', [seen[0]], 1, 9000),
-                                           ('development', seen, 2, 4200), ('final', unseen, 15, final_seed)]:
+    smoke_seed = attempt.get('smoke_seed_base', 9000)
+    development_seed = attempt.get('development_seed_base', 4200)
+    if any(type(value) is not int or value < 0 for value in (smoke_seed, development_seed)):
+        raise ValueError('Development and smoke seeds must be nonnegative integers')
+    for phase, selected, episodes, seed in [('smoke', [seen[0]], 1, smoke_seed),
+                                           ('development', seen, 2, development_seed), ('final', unseen, 15, final_seed)]:
         for number, task in enumerate(selected):
             base = seed + tasks.index(task) * episodes
             group = root / run_directory / phase / task['name']

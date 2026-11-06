@@ -1,7 +1,7 @@
 {
   "description": "My harness for Guava \u2014 native feedback v2; frozen-policy source, integration notes, horizons and qualified pilot results.",
   "existing_repository": false,
-  "main_entrypoint": "package/hs_guava/native_feedback.py",
+  "main_entrypoint": "package/hs_guava/terminal_evidence.py",
   "new_visibility": "private",
   "owner": "HitarthSS",
   "paper": "https://arxiv.org/abs/2606.18363",

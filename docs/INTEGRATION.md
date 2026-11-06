@@ -1,7 +1,7 @@
-# Integration and arm definitions
+# Terminal evidence integration
 
-The reusable code is the `package/` HarnessStudio plugin. After preparing the pinned upstream Guava and HarnessStudio environments, install it with `python -m pip install -e package`. Entry points are `guava-authors = hs_guava:authors` and `guava-native-feedback-v2 = hs_guava:my_harness`. The candidate maps to `NativeFeedbackController`; the authors' controller and physical shadow-null arm are retained.
+Selected factory: `hs_guava:my_harness`; selected controller: `hs_guava.terminal_evidence:TerminalEvidenceController(max_checks=1)`. The authors’ factory is unchanged. Use HarnessStudio baseline, physical shadow-null and candidate arms.
 
-`run_campaign.py` is the audited native/custom-task driver. It requires the real Guava source, checkpoints, task assets, local services, and separately installed simulation dependencies described by the preparation scripts. The package's admission metadata still marks original-runtime parity as pending; completing 120 pairs does not resolve that source-parity gap. The earlier latest-image controller is retained only because test fixtures/provenance refer to it; it is not the selected v2 method.
+The controller consumes only public observations and the previously proposed native tools. It executes one inspection tool in place of the first accepted completion proposal, then returns to the same model on the next budgeted decision. One policy call maps to one semantic execution. The original benchmark bridge and policy/history/parser code are unchanged.
 
-The root tests are dependency checks and public-observation feedback contracts. They make no model request. The actual benchmark was eight tasks × fifteen starts per arm, not 120 distinct tasks. The compact final report preserves authors, candidate and physical null counts separately.
+The native v2 feedback controller remains in its original module for historical inspection; use the linked v2 commit from the README for its exact registration and configuration. Models and private runtime assets are not bundled. The new controller must pass development before final evaluation; no accuracy improvement is assumed.
