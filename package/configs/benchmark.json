@@ -1,0 +1,19 @@
+{
+  "server": {
+    "timeout": 300
+  },
+  "benchmarks": [
+    {
+      "benchmark": "hs_guava.benchmark:GuavaBenchmark",
+      "mode": "sync",
+      "episodes_per_task": 1,
+      "params": {
+        "task_names": [
+          "pick_up_carrot"
+        ],
+        "seed_base": 42,
+        "output_dir": "runs/guava-smoke-native-audit"
+      }
+    }
+  ]
+}

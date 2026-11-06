@@ -1,0 +1,69 @@
+{
+  "generator": "guava-profile-0.2.0",
+  "package_checks_passed": true,
+  "checks": [
+    {
+      "id": "profile",
+      "title": "Reviewed Guava source profile",
+      "status": "passed",
+      "detail": "Model, observation, tool, scorer and budget anchors match the reviewed profile."
+    },
+    {
+      "id": "syntax",
+      "title": "Generated Python syntax",
+      "status": "passed",
+      "detail": "13 Python files parsed successfully with the Lezer Python grammar."
+    },
+    {
+      "id": "integrity",
+      "title": "Artifact integrity",
+      "status": "passed",
+      "detail": "23 unique generated files with SHA-256 content hashes."
+    },
+    {
+      "id": "pins",
+      "title": "Source and model pins",
+      "status": "passed",
+      "detail": "Source commit, checkpoint revisions, imported source hashes and submodule commits are recorded."
+    },
+    {
+      "id": "privacy",
+      "title": "Declared public observation boundary",
+      "status": "passed",
+      "detail": "The declared interface exposes model-facing observations and feedback. Dynamic leak testing remains part of runtime admission."
+    },
+    {
+      "id": "budget",
+      "title": "Native decision budgets",
+      "status": "passed",
+      "detail": "15 per-task decision caps are preserved. Control calls, simulator substeps and stability steps have separate counters."
+    },
+    {
+      "id": "cpu",
+      "title": "Run generated CPU regression suite",
+      "status": "pending",
+      "detail": "The download includes executable tests for transport and motion accounting. The hosted generator does not run Python."
+    },
+    {
+      "id": "parity",
+      "title": "Original-code runtime parity",
+      "status": "pending",
+      "detail": "Compare the original runner and adapter on matched starts, prompts, parsed calls, motion traces and final scoring."
+    },
+    {
+      "id": "runtime",
+      "title": "Model and simulator preflight",
+      "status": "pending",
+      "detail": "Requires the exact Guava checkpoint, approved SAM3 weights and the pinned native environment on a GPU worker."
+    },
+    {
+      "id": "physical",
+      "title": "Total physical horizon audit",
+      "status": "pending",
+      "detail": "Source intake verified turn caps. Inspect task-specific simulator termination and account for all internal motion before evaluation."
+    }
+  ],
+  "runtime_parity": "pending",
+  "evaluation_permitted": false,
+  "paid_model_requests": 0
+}

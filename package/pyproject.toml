@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hs-guava-adapter"
+version = "0.2.0"
+requires-python = ">=3.11"
+dependencies = ["numpy", "anyio", "openai", "pyyaml", "vla-eval==0.8.0"]
+
+[project.entry-points."harnessstudio.methods"]
+guava-authors = "hs_guava:authors"
+guava-native-feedback-v2 = "hs_guava:my_harness"
+
+[tool.setuptools]
+packages = ["hs_guava"]

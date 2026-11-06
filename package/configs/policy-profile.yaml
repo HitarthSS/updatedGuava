@@ -1,0 +1,3 @@
+capabilities: [act, chunk]
+chunking: harness
+execute_horizon: 1

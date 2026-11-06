@@ -1,0 +1,127 @@
+{
+  "arms": {
+    "baseline": {
+      "completion_tokens": 91402,
+      "episodes": 120,
+      "horizon_violations": 0,
+      "model_request_seconds": 2169.701125279069,
+      "prompt_tokens": 3664247,
+      "simulated_seconds": 4058.6500000000005,
+      "success_rate": 0.9333333333333333,
+      "successes": 112,
+      "tool_seconds": 1461.2809815369546,
+      "total_tokens": 3755649,
+      "usage_missing_calls": 0,
+      "vlm_calls": 1038,
+      "wall_seconds": 3841.258121948689,
+      "wilson_95": [
+        0.8739486959646967,
+        0.9658346931390938
+      ]
+    },
+    "candidate": {
+      "completion_tokens": 91998,
+      "episodes": 120,
+      "horizon_violations": 0,
+      "model_request_seconds": 2173.105205724947,
+      "prompt_tokens": 3710798,
+      "simulated_seconds": 4092.65,
+      "success_rate": 0.925,
+      "successes": 111,
+      "tool_seconds": 1476.3643144797534,
+      "total_tokens": 3802796,
+      "usage_missing_calls": 0,
+      "vlm_calls": 1051,
+      "wall_seconds": 3862.6632462861016,
+      "wilson_95": [
+        0.8635908239400624,
+        0.9600428846040397
+      ]
+    },
+    "null": {
+      "completion_tokens": 179919,
+      "episodes": 120,
+      "horizon_violations": 0,
+      "model_request_seconds": 4368.30163012445,
+      "prompt_tokens": 7042205,
+      "simulated_seconds": 4007.1999999999994,
+      "success_rate": 0.9083333333333333,
+      "successes": 109,
+      "tool_seconds": 1522.461650964804,
+      "total_tokens": 7222124,
+      "usage_missing_calls": 0,
+      "vlm_calls": 2056,
+      "wall_seconds": 6124.9976610429585,
+      "wilson_95": [
+        0.843291530273291,
+        0.9480428171514347
+      ]
+    }
+  },
+  "coverage": "120-case unseen subset",
+  "external_model_api_calls": 0,
+  "initial_rendering_audit": {
+    "max_changed_pixels": 12,
+    "max_rgb_channel_delta": 1,
+    "pairs_checked": 240,
+    "pairs_with_roundoff": 25
+  },
+  "paired": {
+    "difference_pp": -0.8333333333333334,
+    "harmed": 2,
+    "helped": 1,
+    "matched_cases": 120,
+    "mcnemar_exact_p": 1.0,
+    "task_cluster_bootstrap_95_pp": [
+      -3.3333333333333335,
+      1.6666666666666667
+    ]
+  },
+  "reproduction": {
+    "attempt": {
+      "controller": "guava-native-feedback-v2",
+      "created_unix": 1793956068.7063227,
+      "development_gate": {
+        "episodes": 14,
+        "max_success_deficit": 1,
+        "required_before_final": true
+      },
+      "directory": "runs-native-v3",
+      "final_seed_base": 10042,
+      "initial_rendering": {
+        "images_modified": false,
+        "max_changed_pixels": 26,
+        "max_rgb_delta": 1,
+        "physical_state_exact": true
+      },
+      "name": "native-history-v3",
+      "policy_audit_offset": 2649027,
+      "previous_directory": "runs-fresh-v2",
+      "previous_evidence_retained": true,
+      "prior_exposed_final_cases": "15 pick_up_carrot cases at old seed base 42; excluded from new evaluation"
+    },
+    "created_unix": 1793956143.424397,
+    "episode_initialization": "fresh native simulator and renderer per case",
+    "gap": "Same-GPU original-code replay matched turns 0\u20134, then diverged at turn 5. Initial physical states must match exactly; provisional image matching allows at most 26 pixels (less than 0.01% at 512x512) with a one-level RGB difference. All raw images are retained unchanged.",
+    "gpu": 5,
+    "initial_rendering": {
+      "max_changed_pixels": 26,
+      "max_rgb_channel_delta": 1,
+      "raw_images_modified": false,
+      "scope": "Provisional comparison only; strict mode still requires byte-exact initial images"
+    },
+    "label": "Provisional adapter comparison; not an exact paper reproduction",
+    "null_audit_note": "Check null actions against its own native policy outputs at the actual observation; cross-rollout byte equality is diagnostic only.",
+    "original_code_parity": "unresolved",
+    "provisional": true,
+    "retained_checks": [
+      "exact physical initial states",
+      "bounded and audited initial rendering roundoff",
+      "shadow-null native input/output provenance",
+      "source freeze",
+      "native horizons"
+    ],
+    "sam3_gpu": 7
+  },
+  "timing_note": "Shared GPU. Model request seconds include queue/serving overhead; tool wall includes perception and control; simulated seconds are physics time."
+}

@@ -1,0 +1,34 @@
+{
+  "server": {
+    "timeout": 300
+  },
+  "benchmarks": [
+    {
+      "benchmark": "hs_guava.benchmark:GuavaBenchmark",
+      "mode": "sync",
+      "episodes_per_task": 2,
+      "params": {
+        "task_names": [
+          "can_in_bin",
+          "apple_juice_order",
+          "remove_cube_from_tray",
+          "push_basket",
+          "close_drawer",
+          "shell_game",
+          "red_objects_in_basket"
+        ],
+        "seed_base": 4200,
+        "output_dir": "runs/guava-development-native-audit",
+        "seed_bases": {
+          "can_in_bin": 4216,
+          "apple_juice_order": 4218,
+          "remove_cube_from_tray": 4220,
+          "push_basket": 4222,
+          "close_drawer": 4224,
+          "shell_game": 4226,
+          "red_objects_in_basket": 4228
+        }
+      }
+    }
+  ]
+}

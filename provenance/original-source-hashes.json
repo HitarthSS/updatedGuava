@@ -1,0 +1,205 @@
+{
+  "note": "Source collection hashes; exported locations may differ. Core algorithms are copied without behavior changes.",
+  "source_files": [
+    {
+      "bytes": 4691,
+      "file": "package/manifest.json",
+      "sha256": "3e0675c912577405e1ddcedc35c2f758bc3252607f72baa5af41404dbda3d99e"
+    },
+    {
+      "bytes": 415,
+      "file": "package/pyproject.toml",
+      "sha256": "bdab19f3ede2fb705e4103ad3849f634dee15a7f72c3b96758c78c94b62dc3f7"
+    },
+    {
+      "bytes": 2460,
+      "file": "package/validation.json",
+      "sha256": "3abb9672f98918402c3ad0bcae72f74bd1d884c4166ea808ff53168fdb70a7d0"
+    },
+    {
+      "bytes": 2645,
+      "file": "package/source-map.json",
+      "sha256": "99fdd60cdfe0249ba64a887c8e1b1576d31d1d80d68b460aa5ac740409ae66e4"
+    },
+    {
+      "bytes": 3351,
+      "file": "package/tests/test_harnessstudio.py",
+      "sha256": "40cd9d1371eb0c6815e6a1cdd200785ce195e5824ad7e9a347b400521a59d6e5"
+    },
+    {
+      "bytes": 4325,
+      "file": "package/tests/test_native_feedback.py",
+      "sha256": "137b0418474dbe9e8b537d0052b39256a8223e2110bf5c6dbabb38ff98cd269b"
+    },
+    {
+      "bytes": 11010,
+      "file": "package/tests/test_feedback.py",
+      "sha256": "431633b16b7e057bc5ca3aea985e56a816538fe1b36ba070e905e2f5a62c7232"
+    },
+    {
+      "bytes": 7406,
+      "file": "package/tests/test_server_cli.py",
+      "sha256": "0adc3b8dca4a7c78ee0c076ef084aad36935ed269222f1d45d13c40550c4b24c"
+    },
+    {
+      "bytes": 1975,
+      "file": "package/tests/test_request_meter.py",
+      "sha256": "e193c8b5951ab8eb5970e13591ad9eb160719c16f3c3b7293d50c5a02b4bbe7d"
+    },
+    {
+      "bytes": 3218,
+      "file": "package/tests/test_bridge.py",
+      "sha256": "e23652a05cc20bcd46af87c8a1f04d229ae2f35b1dd357b5937300f4f148bbe2"
+    },
+    {
+      "bytes": 253,
+      "file": "package/hs_guava/controller.py",
+      "sha256": "57aae641cf517b42d589cb6f7efc7ef1e661506283c461892dca20e7ae9e7826"
+    },
+    {
+      "bytes": 1112,
+      "file": "package/hs_guava/native.py",
+      "sha256": "cd36d02d816520e0f4f80d03633b3415dea8481a1b5570b70fb26b806122b6f8"
+    },
+    {
+      "bytes": 1156,
+      "file": "package/hs_guava/request_meter.py",
+      "sha256": "a8526348896b11af064e1b553d407b19ccd6fcc42570e0f13018bf7a197a11bf"
+    },
+    {
+      "bytes": 1898,
+      "file": "package/hs_guava/messages.py",
+      "sha256": "2631d541b26dc1060d060fa8bd70f8e3d68f8c6c04c2d26914269f22dbf885eb"
+    },
+    {
+      "bytes": 2340,
+      "file": "package/hs_guava/budget.py",
+      "sha256": "0b0f581b61c92c6f97af84d2f50e3ba8436d90c29e260341f9349a11a46fec94"
+    },
+    {
+      "bytes": 8801,
+      "file": "package/hs_guava/feedback.py",
+      "sha256": "b800af48cdf2bcb711d08e92304eb190b2be0841815c7f76a2356830f80cf4d0"
+    },
+    {
+      "bytes": 1835,
+      "file": "package/hs_guava/__init__.py",
+      "sha256": "4c50a9b2a423752c66306fd85133752ab97343cfbb1cda474948027f5344c416"
+    },
+    {
+      "bytes": 12083,
+      "file": "package/hs_guava/benchmark.py",
+      "sha256": "54f99904839795967931e8921123ada237a982065cdac260e3ca38dac0832678"
+    },
+    {
+      "bytes": 1529,
+      "file": "package/hs_guava/codec.py",
+      "sha256": "2c3a4eacf4145908804079396cd22cf400c640dc7cbfe79d0259bea2eaf79631"
+    },
+    {
+      "bytes": 5026,
+      "file": "package/hs_guava/native_feedback.py",
+      "sha256": "faa4319bb4bf1f9e769955192b45a2de15a917246d6447da8446e494c81be684"
+    },
+    {
+      "bytes": 3217,
+      "file": "package/hs_guava/candidate.py",
+      "sha256": "d7cde0cb99f831546f9b5a95979dc6beb64eca79af2bca9bf2b4e8828311e90e"
+    },
+    {
+      "bytes": 5742,
+      "file": "package/hs_guava/model_server.py",
+      "sha256": "79a29e48787dc3680999ef0e8ed5a04125e6bf997e964dbd9cbe4568d6bda51f"
+    },
+    {
+      "bytes": 64,
+      "file": "package/configs/policy-profile.yaml",
+      "sha256": "ca776d913c0c9708ede69ae871e030204282acc4d255d4d6488902050303bd6c"
+    },
+    {
+      "bytes": 868,
+      "file": "package/configs/unseen120.json",
+      "sha256": "8dde732c1b8fe764e5f5f957f0f411ef087de6a25e1331f7a39a8a547a0ace78"
+    },
+    {
+      "bytes": 807,
+      "file": "package/configs/development.json",
+      "sha256": "9bfe564336ab8fca38209009cf797752058a112c9f589ba9dff1c19006170dd8"
+    },
+    {
+      "bytes": 351,
+      "file": "package/configs/benchmark.json",
+      "sha256": "6761bab2f9481aaa7989a0a7161bb43ca67fa6a5d8aafab807228f06fc584aca"
+    },
+    {
+      "bytes": 504,
+      "file": "package/contracts/guava.yaml",
+      "sha256": "6ca9c2ecf9eeb4d43bb47ad54fd67ddc0d766c4a88f7fd918cc51a90ac99a43e"
+    },
+    {
+      "bytes": 28215,
+      "file": "run_campaign.py",
+      "sha256": "451940dcadda652cf970f6dee96fbfbff188d8248b7a081be21929e9d9b5a9e3"
+    },
+    {
+      "bytes": 4037,
+      "file": "plan.py",
+      "sha256": "5963dad547c9d90daf00dedd1b7a7ef21c7230160e215660f99cc53a40249b4d"
+    },
+    {
+      "bytes": 5373,
+      "file": "report.py",
+      "sha256": "474a468d5b4f3d4ec1f2957ab0b68ccdedf4e40ee3af6ddfa43ecef4b983f249"
+    },
+    {
+      "bytes": 1926,
+      "file": "initial_audit.py",
+      "sha256": "dfd93556c864008d7578037ca5a8c708a7b2e749e14883cf415bd69b11ac2b33"
+    },
+    {
+      "bytes": 2975,
+      "file": "null_audit.py",
+      "sha256": "e1de65978432b51e65944ef8eb7051e161cb68ab2926ce784bc3c391b21d0e6c"
+    },
+    {
+      "bytes": 5508,
+      "file": "native_parity.py",
+      "sha256": "c7f0dae432c582a483518489ca9695e0bb8d3b6161549c644d1e30d590b25d23"
+    },
+    {
+      "bytes": 6393,
+      "file": "test_plan.py",
+      "sha256": "8ff6473903523782c28e5e9b95f6de6c8f5ea0ff1f10f7263dfbb2684fe26b77"
+    },
+    {
+      "bytes": 3141,
+      "file": "test_initial_audit.py",
+      "sha256": "ab4cca4a9656aab38c3ce28656a4c545b6b116497c5ff5e205b91c8b0d136653"
+    },
+    {
+      "bytes": 2938,
+      "file": "test_null_audit.py",
+      "sha256": "568ac7232f7b35826a3de89cc13cee941ba0b074d45be4c88d28adaa6dcd4edc"
+    },
+    {
+      "bytes": 2683,
+      "file": "simulator_preflight.py",
+      "sha256": "3cd3de8d0b6c09bb5015c48ae5d4aef908ba1835694c7c2158fba41e5204b5f2"
+    },
+    {
+      "bytes": 4821,
+      "file": "prepare_runtime.py",
+      "sha256": "d898c10c901d6ac54abff02f48eb6727cbdff809f6afdaccef03a2aad303116a"
+    },
+    {
+      "bytes": 3302,
+      "file": "download_assets.py",
+      "sha256": "7a23e5230c484857972d7f3e818ad24bf65cc01a8dc2e6da599c01008692af8e"
+    },
+    {
+      "bytes": 1686,
+      "file": "eval-constraints.txt",
+      "sha256": "ec608bf3a1349cb903e08b8af2b4c978c90815f249928aaa814dc65db22cb494"
+    }
+  ]
+}

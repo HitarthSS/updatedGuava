@@ -1,0 +1,34 @@
+{
+  "bash_syntax_files": 0,
+  "checked_at_utc": "2026-11-06T20:50:50.812226+00:00",
+  "core_entrypoint": "package/hs_guava/native_feedback.py",
+  "core_matches_recorded_experiment": true,
+  "core_source_sha256": "faa4319bb4bf1f9e769955192b45a2de15a917246d6447da8446e494c81be684",
+  "cpu_tests": {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "package/tests",
+      "-v"
+    ],
+    "environment": "Existing Linux Guava evaluation environment; GPUs hidden; downloads disabled; local fake transport only",
+    "executed": true,
+    "passed": true,
+    "seconds": 1.816,
+    "skipped": 0,
+    "tests": 32
+  },
+  "full_gpu_benchmark_revalidated": false,
+  "limitations": [
+    "Syntax and CPU checks do not establish fresh-machine numerical parity or benchmark reproduction."
+  ],
+  "markdown_paths_checked": true,
+  "model_api_calls": 0,
+  "passed": true,
+  "publication_only": true,
+  "python_ast_files": 31,
+  "secret_patterns_checked": true
+}

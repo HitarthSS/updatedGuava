@@ -1,0 +1,22 @@
+name: guava
+public_keys: [task_description, guava_request]
+instruction_key: task_description
+action_dim: 8193
+control_mode: guava_tool_decision
+default_horizon: 25
+horizons:
+  pick_up_carrot: 25
+  tomato_near_potato: 25
+  lemon_in_bin: 25
+  push_pot: 25
+  cube_stack_reverse: 25
+  apple_juice_reverse_order: 25
+  bin_and_tray_simple: 30
+  set_table: 30
+  can_in_bin: 25
+  apple_juice_order: 25
+  remove_cube_from_tray: 25
+  push_basket: 25
+  close_drawer: 25
+  shell_game: 30
+  red_objects_in_basket: 30

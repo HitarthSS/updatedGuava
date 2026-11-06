@@ -1,0 +1,80 @@
+[
+  {
+    "id": "model",
+    "title": "Frozen model",
+    "icon": "Cpu",
+    "source": "guava/inference/benchmark_engine.py",
+    "symbol": "client.chat.completions.create",
+    "line": 197,
+    "target": "hs_guava/model_server.py",
+    "targetSymbol": "GuavaPolicyServer",
+    "description": "Preserve conversation history, model settings and original response parsing.",
+    "category": "agentic_orchestration",
+    "status": "mapped"
+  },
+  {
+    "id": "observations",
+    "title": "Observation boundary",
+    "icon": "ScanEye",
+    "source": "guava/inference/benchmark_compatible_tasks.py",
+    "symbol": "def observation(",
+    "line": 47,
+    "target": "hs_guava/benchmark.py",
+    "targetSymbol": "GuavaBenchmark.make_obs",
+    "description": "Expose RGB, gripper state, tool schema and feedback. Keep scorer state private.",
+    "category": "observation_grounding",
+    "status": "mapped"
+  },
+  {
+    "id": "tools",
+    "title": "Tool execution",
+    "icon": "Workflow",
+    "source": "guava/tools/tools.py",
+    "symbol": "def make_tool_registry(",
+    "line": 970,
+    "target": "hs_guava/benchmark.py",
+    "targetSymbol": "GuavaBenchmark.step",
+    "description": "Reuse the semantic tool registry and account for motion inside each tool.",
+    "category": "skill_composition",
+    "status": "mapped"
+  },
+  {
+    "id": "controller",
+    "title": "Decision loop",
+    "icon": "GitBranch",
+    "source": "guava/inference/benchmark_engine.py",
+    "symbol": "def run_episode(",
+    "line": 124,
+    "target": "hs_guava/controller.py",
+    "targetSymbol": "AuthorController.run",
+    "description": "One model decision followed by one original tool execution, using a lossless transport envelope.",
+    "category": "agentic_orchestration",
+    "status": "mapped"
+  },
+  {
+    "id": "scorer",
+    "title": "Success evaluator",
+    "icon": "ShieldCheck",
+    "source": "guava/inference/benchmark_engine.py",
+    "symbol": "stable_audits =",
+    "line": 239,
+    "target": "hs_guava/benchmark.py",
+    "targetSymbol": "GuavaBenchmark.finalize",
+    "description": "Preserve task-owned success and the original post-stop stability checks.",
+    "category": "evaluation_only",
+    "status": "mapped"
+  },
+  {
+    "id": "budgets",
+    "title": "Budget contract",
+    "icon": "Timer",
+    "source": "guava/inference/study_protocols.py",
+    "symbol": "CAPS =",
+    "line": 16,
+    "target": "contracts/guava.yaml",
+    "targetSymbol": "decision_horizon + tool_budget",
+    "description": "Keep per-task 25/30 decision and tool caps. Record physical execution separately.",
+    "category": "execution_monitoring",
+    "status": "mapped"
+  }
+]

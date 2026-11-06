@@ -1,0 +1,12 @@
+{
+  "documented_model_configuration": [
+    "AIcell/guava-v13b-qwen3.5-4b at 19a8c77544cf7c161966f49bbb2654b85c6b2fa3, plus gated facebook/sam3.",
+    "HarnessStudio at 785515ff63cacf70617a1bc884cf8e118ce75b85; policy transport is loopback-only."
+  ],
+  "model": {
+    "name": "AIcell/guava-v13b-qwen3.5-4b",
+    "revision": "19a8c77544cf7c161966f49bbb2654b85c6b2fa3",
+    "role": "Released frozen agent"
+  },
+  "weights_included": false
+}

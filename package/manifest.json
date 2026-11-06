@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "generator": "guava-profile-0.3.0",
+  "source": {
+    "repository": "https://github.com/hdacnw/guava-release",
+    "commit": "8eeed908bef4fb63c8bfc7c4e2fa2f5684eb067f",
+    "files": {
+      "README.md": "ac4fd79759d465118d729044e4fc7ee2ee0c9530db74800bc7d5c6503754e4e0",
+      "guava/inference/benchmark_engine.py": "10f38b99e5288a66e6307797d348d3b3ac03f49a78ac0b5eb29bbb4b3f75e44c",
+      "guava/inference/benchmark_compatible_tasks.py": "364e595c3974214174d72aefbfc2ad120113e33b606d62bf8da5d16c45634da4",
+      "guava/inference/study_protocols.py": "eb0d533f19b9bcf7b2de92f2c0d961b93797a46dfa96acf443088cebfafd07fc",
+      "guava/inference/rollout_env.py": "bde8ff1dad954edacd2751747cb2cceedbc41c15bbd95795da12ea94658fe7b2",
+      "guava/inference/sft_frame.py": "a76c7a82164b6a3e531db29e03c45503bcaff9b7c692ee4a8174d0aaaaf2708c",
+      "guava/tools/tools.py": "132714bbde7e0a24e90a71d319a1acc0e6f43ab7d2bee938324f66ed10d10535",
+      "guava/sim/env.py": "79cea1009e431828078d5f4b102d795a39b826a43889e6598737749876adbb8c",
+      "guava/config.py": "817a6f531f291ebcfc7288ef169e8a84fbba1cb738a7b715f47aaecbf937f18c",
+      "configs/prompts/sft_v13b_short.txt": "c07502a11d2e454f227d1f9e22c5fb1fcbdf56abc1977e0f7d9c253a67b5794c",
+      "pyproject.toml": "156a989299502c4fc92d627ab1271eb5f17975c38662504e10bb58e4c21c824a",
+      ".gitmodules": "9b2c5fed0df4811954dc3390cfd0aca5dff113261f3150ce8917789ef70eaa57"
+    },
+    "submodules": [
+      {
+        "path": "third_party/GraspGen",
+        "sha": "a56d518f3b76ea2a432b5b838b3c68027d29be49"
+      },
+      {
+        "path": "third_party/robosuite",
+        "sha": "3318cd767039a3bad0514b50f08e89e4cad1b1a7"
+      },
+      {
+        "path": "third_party/sam3",
+        "sha": "967fdd651f71ca14949122fed4c918a778ca9334"
+      }
+    ]
+  },
+  "harnessstudio": {
+    "commit": "785515ff63cacf70617a1bc884cf8e118ce75b85",
+    "entrypoint": "guava-authors",
+    "vla_eval": "0.8.0"
+  },
+  "model": {
+    "name": "AIcell/guava-v13b-qwen3.5-4b",
+    "revision": "19a8c77544cf7c161966f49bbb2654b85c6b2fa3",
+    "role": "Released frozen agent"
+  },
+  "trainable_parameters": 0,
+  "tasks": [
+    {
+      "name": "pick_up_carrot",
+      "cap": 25,
+      "unseen": true
+    },
+    {
+      "name": "tomato_near_potato",
+      "cap": 25,
+      "unseen": true
+    },
+    {
+      "name": "lemon_in_bin",
+      "cap": 25,
+      "unseen": true
+    },
+    {
+      "name": "push_pot",
+      "cap": 25,
+      "unseen": true
+    },
+    {
+      "name": "cube_stack_reverse",
+      "cap": 25,
+      "unseen": true
+    },
+    {
+      "name": "apple_juice_reverse_order",
+      "cap": 25,
+      "unseen": true
+    },
+    {
+      "name": "bin_and_tray_simple",
+      "cap": 30,
+      "unseen": true
+    },
+    {
+      "name": "set_table",
+      "cap": 30,
+      "unseen": true
+    },
+    {
+      "name": "can_in_bin",
+      "cap": 25,
+      "unseen": false
+    },
+    {
+      "name": "apple_juice_order",
+      "cap": 25,
+      "unseen": false
+    },
+    {
+      "name": "remove_cube_from_tray",
+      "cap": 25,
+      "unseen": false
+    },
+    {
+      "name": "push_basket",
+      "cap": 25,
+      "unseen": false
+    },
+    {
+      "name": "close_drawer",
+      "cap": 25,
+      "unseen": false
+    },
+    {
+      "name": "shell_game",
+      "cap": 30,
+      "unseen": false
+    },
+    {
+      "name": "red_objects_in_basket",
+      "cap": 30,
+      "unseen": false
+    }
+  ],
+  "candidate": {
+    "name": "my harness",
+    "method": "guava-native-feedback-v2",
+    "factory": "hs_guava:my_harness",
+    "fidelity": "tf_variant",
+    "status": "development_only",
+    "measured_improvement": null,
+    "categories": [
+      "agentic_orchestration",
+      "execution_monitoring"
+    ],
+    "settings": {
+      "max_cues": 2
+    },
+    "recovery_turn_cost": 0,
+    "history": "complete native conversation; bounded public failure notes only",
+    "automatic_recovery_tools": 0
+  },
+  "budgets": {
+    "unit": "model_decision",
+    "initial_settle_control_calls": 20,
+    "post_stop_stability_control_calls": [
+      5,
+      5,
+      5
+    ],
+    "physical_horizon": null,
+    "physical_horizon_verified": false,
+    "note": "Retain native simulator termination. A total physical horizon must be audited before evaluation admission."
+  },
+  "admission": {
+    "package_generated": true,
+    "runtime_parity": "pending",
+    "evaluation_permitted": false
+  },
+  "runtime_comparison": {
+    "task_subset": "8 unseen tasks x 15 episodes",
+    "transport_retries": 2,
+    "source_control_horizon": 500000,
+    "paper_physical_horizon_independently_reported": false,
+    "guava_source_modifications": false,
+    "authors_sam3_compat_patch": true
+  }
+}

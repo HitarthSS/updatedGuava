@@ -1,0 +1,18 @@
+{
+  "authors_harness": "112/120 (93.33%)",
+  "categories": [
+    "execution_monitoring",
+    "agentic_orchestration"
+  ],
+  "full_paper_reproduction": false,
+  "horizon": "25/30 semantic turns per task and the released 500,000-control-call simulator horizon. Every action is metered; no multiplier.",
+  "limitations": [
+    "The revised candidate did not improve accuracy or compute: 1,038 versus 1,051 VLM calls.",
+    "Original-source replay parity diverged at turn 5 and remains unresolved. Results are a provisional adapter comparison.",
+    "Exact physical starts are required; a disclosed initial-render tolerance permits <=26 pixels at 512x512 to differ by one channel level. Raw images are unchanged.",
+    "The earlier latest-image v1 was rejected after development regression and is not pooled with these results."
+  ],
+  "my_harness": "111/120 (92.50%)",
+  "paper_reference": "Guava-4B unseen-task mean: 90.8%, 240 paper episodes",
+  "scope": "Eight released unseen task definitions, fifteen fresh seeds each, plus a physical shadow-null arm. Final seed base 10042; separate seen development."
+}

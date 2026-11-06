@@ -1,0 +1,15 @@
+{
+  "categories": [
+    "execution_monitoring",
+    "agentic_orchestration"
+  ],
+  "entrypoint": "package/hs_guava/native_feedback.py",
+  "horizon": "25/30 semantic turns per task and the released 500,000-control-call simulator horizon. Every action is metered; no multiplier.",
+  "models": [
+    "AIcell/guava-v13b-qwen3.5-4b at 19a8c77544cf7c161966f49bbb2654b85c6b2fa3, plus gated facebook/sam3.",
+    "HarnessStudio at 785515ff63cacf70617a1bc884cf8e118ce75b85; policy transport is loopback-only."
+  ],
+  "paid_api_calls_required": 0,
+  "scope": "Eight released unseen task definitions, fifteen fresh seeds each, plus a physical shadow-null arm. Final seed base 10042; separate seen development.",
+  "trainable_parameters": 0
+}
