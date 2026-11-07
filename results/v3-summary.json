@@ -1,0 +1,301 @@
+{
+  "arms": {
+    "baseline": {
+      "completion_tokens": 91351,
+      "episodes": 120,
+      "horizon_violations": 0,
+      "model_request_seconds": 2028.9417505534366,
+      "prompt_tokens": 3683659,
+      "simulated_seconds": 3899.9500000000007,
+      "success_rate": 0.925,
+      "successes": 111,
+      "tool_seconds": 1440.7077089222148,
+      "total_tokens": 3775010,
+      "usage_missing_calls": 0,
+      "vlm_calls": 1042,
+      "wall_seconds": 3677.5119675314054,
+      "wilson_95": [
+        0.8635908239400624,
+        0.9600428846040397
+      ]
+    },
+    "candidate": {
+      "completion_tokens": 99450,
+      "episodes": 120,
+      "horizon_violations": 0,
+      "model_request_seconds": 2241.0007271366194,
+      "prompt_tokens": 4485043,
+      "simulated_seconds": 4051.800000000001,
+      "success_rate": 0.9416666666666667,
+      "successes": 113,
+      "tool_seconds": 1476.0464866319671,
+      "total_tokens": 4584493,
+      "usage_missing_calls": 0,
+      "vlm_calls": 1188,
+      "wall_seconds": 3954.283963965252,
+      "wilson_95": [
+        0.8844740796636988,
+        0.9714589899997798
+      ]
+    },
+    "null": {
+      "completion_tokens": 183750,
+      "episodes": 120,
+      "horizon_violations": 0,
+      "model_request_seconds": 3835.432283423841,
+      "prompt_tokens": 7538755,
+      "simulated_seconds": 3890.650000000001,
+      "success_rate": 0.925,
+      "successes": 111,
+      "tool_seconds": 1402.7499660169706,
+      "total_tokens": 7722505,
+      "usage_missing_calls": 0,
+      "vlm_calls": 2094,
+      "wall_seconds": 5470.133331429213,
+      "wilson_95": [
+        0.8635908239400624,
+        0.9600428846040397
+      ]
+    }
+  },
+  "coverage": "120-case unseen subset",
+  "external_model_api_calls": 0,
+  "initial_rendering_audit": {
+    "max_changed_pixels": 3,
+    "max_rgb_channel_delta": 1,
+    "pairs_checked": 240,
+    "pairs_with_roundoff": 4
+  },
+  "paired": {
+    "difference_pp": 1.6666666666666667,
+    "harmed": 0,
+    "helped": 2,
+    "matched_cases": 120,
+    "mcnemar_exact_p": 0.5,
+    "task_cluster_bootstrap_95_pp": [
+      0,
+      5
+    ]
+  },
+  "timing_note": "Shared GPU. Model request seconds include queue/serving overhead; tool wall includes perception and control; simulated seconds are physics time.",
+  "method": "guava-terminal-evidence-v3",
+  "state": "complete",
+  "evaluated_harness_commit": "043eec0c7b9dd11e38a73ce1555de91295896792",
+  "source_commit": "8eeed908bef4fb63c8bfc7c4e2fa2f5684eb067f",
+  "model": {
+    "name": "AIcell/guava-v13b-qwen3.5-4b",
+    "revision": "19a8c77544cf7c161966f49bbb2654b85c6b2fa3",
+    "role": "Released frozen agent"
+  },
+  "development": {
+    "allowed_success_deficit": 0,
+    "criterion": "reject substantial development regression; not evidence of improvement",
+    "episodes_per_arm": 14,
+    "passed": true,
+    "successes": {
+      "baseline": 11,
+      "candidate": 12
+    }
+  },
+  "final_seed_base": 20042,
+  "horizon": {
+    "multiplier": 1,
+    "native_control_calls": 500000,
+    "physical_source": "released task factories and active robosuite termination; not a LIBERO horizon",
+    "semantic_turns": "25/30 per task, including automatic recovery tools"
+  },
+  "reproduction": {
+    "label": "Provisional adapter comparison; not an exact paper reproduction",
+    "original_code_parity": "unresolved",
+    "gap": "Same-GPU original-code replay matched turns 0\u20134, then diverged at turn 5. Initial physical states must match exactly; provisional image matching allows at most 26 pixels (less than 0.01% at 512x512) with a one-level RGB difference. All raw images are retained unchanged.",
+    "initial_rendering": {
+      "max_changed_pixels": 26,
+      "max_rgb_channel_delta": 1,
+      "raw_images_modified": false,
+      "scope": "Provisional comparison only; strict mode still requires byte-exact initial images"
+    },
+    "null_audit_note": "Check null actions against its own native policy outputs at the actual observation; cross-rollout byte equality is diagnostic only."
+  },
+  "tasks": {
+    "pick_up_carrot": {
+      "arms": {
+        "baseline": {
+          "episodes": 15,
+          "successes": 15
+        },
+        "candidate": {
+          "episodes": 15,
+          "successes": 15
+        },
+        "null": {
+          "episodes": 15,
+          "successes": 15
+        }
+      },
+      "seed_base": 20042,
+      "episodes": 15
+    },
+    "tomato_near_potato": {
+      "arms": {
+        "baseline": {
+          "episodes": 15,
+          "successes": 14
+        },
+        "candidate": {
+          "episodes": 15,
+          "successes": 14
+        },
+        "null": {
+          "episodes": 15,
+          "successes": 14
+        }
+      },
+      "seed_base": 20057,
+      "episodes": 15
+    },
+    "lemon_in_bin": {
+      "arms": {
+        "baseline": {
+          "episodes": 15,
+          "successes": 15
+        },
+        "candidate": {
+          "episodes": 15,
+          "successes": 15
+        },
+        "null": {
+          "episodes": 15,
+          "successes": 15
+        }
+      },
+      "seed_base": 20072,
+      "episodes": 15
+    },
+    "push_pot": {
+      "arms": {
+        "baseline": {
+          "episodes": 15,
+          "successes": 14
+        },
+        "candidate": {
+          "episodes": 15,
+          "successes": 14
+        },
+        "null": {
+          "episodes": 15,
+          "successes": 14
+        }
+      },
+      "seed_base": 20087,
+      "episodes": 15
+    },
+    "cube_stack_reverse": {
+      "arms": {
+        "baseline": {
+          "episodes": 15,
+          "successes": 15
+        },
+        "candidate": {
+          "episodes": 15,
+          "successes": 15
+        },
+        "null": {
+          "episodes": 15,
+          "successes": 14
+        }
+      },
+      "seed_base": 20102,
+      "episodes": 15
+    },
+    "apple_juice_reverse_order": {
+      "arms": {
+        "baseline": {
+          "episodes": 15,
+          "successes": 12
+        },
+        "candidate": {
+          "episodes": 15,
+          "successes": 14
+        },
+        "null": {
+          "episodes": 15,
+          "successes": 13
+        }
+      },
+      "seed_base": 20117,
+      "episodes": 15
+    },
+    "bin_and_tray_simple": {
+      "arms": {
+        "baseline": {
+          "episodes": 15,
+          "successes": 13
+        },
+        "candidate": {
+          "episodes": 15,
+          "successes": 13
+        },
+        "null": {
+          "episodes": 15,
+          "successes": 13
+        }
+      },
+      "seed_base": 20132,
+      "episodes": 15
+    },
+    "set_table": {
+      "arms": {
+        "baseline": {
+          "episodes": 15,
+          "successes": 13
+        },
+        "candidate": {
+          "episodes": 15,
+          "successes": 13
+        },
+        "null": {
+          "episodes": 15,
+          "successes": 13
+        }
+      },
+      "seed_base": 20147,
+      "episodes": 15
+    }
+  },
+  "frozen_sha256": {
+    "package/configs/benchmark.json": "6761bab2f9481aaa7989a0a7161bb43ca67fa6a5d8aafab807228f06fc584aca",
+    "package/configs/development.json": "9bfe564336ab8fca38209009cf797752058a112c9f589ba9dff1c19006170dd8",
+    "package/configs/policy-profile.yaml": "ca776d913c0c9708ede69ae871e030204282acc4d255d4d6488902050303bd6c",
+    "package/configs/unseen120.json": "8dde732c1b8fe764e5f5f957f0f411ef087de6a25e1331f7a39a8a547a0ace78",
+    "package/contracts/guava.yaml": "6ca9c2ecf9eeb4d43bb47ad54fd67ddc0d766c4a88f7fd918cc51a90ac99a43e",
+    "package/hs_guava/__init__.py": "538e56e556cddf46c350722bf29f0d1f31a35d3035f6f05ba2663beda7e60b32",
+    "package/hs_guava/benchmark.py": "54f99904839795967931e8921123ada237a982065cdac260e3ca38dac0832678",
+    "package/hs_guava/budget.py": "0b0f581b61c92c6f97af84d2f50e3ba8436d90c29e260341f9349a11a46fec94",
+    "package/hs_guava/candidate.py": "d7cde0cb99f831546f9b5a95979dc6beb64eca79af2bca9bf2b4e8828311e90e",
+    "package/hs_guava/codec.py": "2c3a4eacf4145908804079396cd22cf400c640dc7cbfe79d0259bea2eaf79631",
+    "package/hs_guava/controller.py": "57aae641cf517b42d589cb6f7efc7ef1e661506283c461892dca20e7ae9e7826",
+    "package/hs_guava/feedback.py": "b800af48cdf2bcb711d08e92304eb190b2be0841815c7f76a2356830f80cf4d0",
+    "package/hs_guava/messages.py": "2631d541b26dc1060d060fa8bd70f8e3d68f8c6c04c2d26914269f22dbf885eb",
+    "package/hs_guava/model_server.py": "79a29e48787dc3680999ef0e8ed5a04125e6bf997e964dbd9cbe4568d6bda51f",
+    "package/hs_guava/native.py": "cd36d02d816520e0f4f80d03633b3415dea8481a1b5570b70fb26b806122b6f8",
+    "package/hs_guava/native_feedback.py": "faa4319bb4bf1f9e769955192b45a2de15a917246d6447da8446e494c81be684",
+    "package/hs_guava/request_meter.py": "a8526348896b11af064e1b553d407b19ccd6fcc42570e0f13018bf7a197a11bf",
+    "package/hs_guava/terminal_evidence.py": "519e836aa58582d9d1a6610e039899bbdeeec006764352a2b900a09cd5bf4ac0",
+    "package/manifest.json": "40670a27a186d4ac20e903904e341d33da6096735319e43b34419d58fd3458a0",
+    "package/pyproject.toml": "19fa99327e66200379bd13434be424fc1677892a23e724f687e232d845a0af96",
+    "package/source-map.json": "99fdd60cdfe0249ba64a887c8e1b1576d31d1d80d68b460aa5ac740409ae66e4",
+    "package/tests/test_bridge.py": "e23652a05cc20bcd46af87c8a1f04d229ae2f35b1dd357b5937300f4f148bbe2",
+    "package/tests/test_feedback.py": "431633b16b7e057bc5ca3aea985e56a816538fe1b36ba070e905e2f5a62c7232",
+    "package/tests/test_harnessstudio.py": "40cd9d1371eb0c6815e6a1cdd200785ce195e5824ad7e9a347b400521a59d6e5",
+    "package/tests/test_native_feedback.py": "137b0418474dbe9e8b537d0052b39256a8223e2110bf5c6dbabb38ff98cd269b",
+    "package/tests/test_request_meter.py": "e193c8b5951ab8eb5970e13591ad9eb160719c16f3c3b7293d50c5a02b4bbe7d",
+    "package/tests/test_server_cli.py": "0adc3b8dca4a7c78ee0c076ef084aad36935ed269222f1d45d13c40550c4b24c",
+    "package/tests/test_terminal_evidence.py": "72d5513333f089dab5125342e5f3a5e6a4bf70207d09a6d9bcb9d85960acfb7f",
+    "package/validation.json": "3abb9672f98918402c3ad0bcae72f74bd1d884c4166ea808ff53168fdb70a7d0",
+    "initial_audit.py": "dfd93556c864008d7578037ca5a8c708a7b2e749e14883cf415bd69b11ac2b33",
+    "null_audit.py": "e1de65978432b51e65944ef8eb7051e161cb68ab2926ce784bc3c391b21d0e6c",
+    "plan.py": "5804499eb6fe3d2d9dc25bb606140d01a831ced0f2eb8b970bda498cb2e696de",
+    "report.py": "474a468d5b4f3d4ec1f2957ab0b68ccdedf4e40ee3af6ddfa43ecef4b983f249",
+    "run_campaign.py": "e8725eed52d579182a2f07f80f615694f9841174dcddb384bb9223841f49c9b5"
+  }
+}

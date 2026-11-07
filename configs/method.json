@@ -11,11 +11,11 @@
     "HarnessStudio at 785515ff63cacf70617a1bc884cf8e118ce75b85; policy transport is loopback-only."
   ],
   "paid_api_calls_required": 0,
-  "scope": "Eight released unseen task definitions, fifteen fresh seeds each, plus a physical shadow-null arm. Final seed base 10042; separate seen development.",
+  "scope": "Eight released unseen task definitions, fifteen fresh seeds each, plus a physical shadow-null arm. Final seed base 20042 with separate seen development.",
   "trainable_parameters": 0,
   "method": "guava-terminal-evidence-v3",
   "settings": {
     "max_checks": 1
   },
-  "status": "development-running"
+  "status": "evaluation-complete"
 }

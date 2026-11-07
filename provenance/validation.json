@@ -10,10 +10,12 @@
     0,
     1
   ],
-  "real_simulator_evaluation": "starting; no v3 accuracy result yet",
+  "real_simulator_evaluation": "complete with 120 audited matched cases on eight tasks",
+  "results": "results/v3-summary.json",
+  "evaluated_source_hashes_verified": 34,
   "original_code_parity": "unresolved; provisional adapter comparison",
   "policy_and_model_server_unchanged": true,
   "benchmark_bridge_unchanged": true,
   "paid_model_api_calls": 0,
-  "previous_validation": "Earlier source publication validated v2; this record applies to the v3 development candidate."
+  "previous_validation": "The earlier source publication records v2 validation. This record covers terminal-evidence v3."
 }

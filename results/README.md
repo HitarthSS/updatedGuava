@@ -1,3 +1,4 @@
 # Experiment cohorts
 
-`summary.json` and `interpretation.json` are the historical native-feedback-v2 evaluation (authors 112/120; candidate 111/120). They are not v3 results. Terminal-evidence-v3 uses a new final seed base, separate development, and a new source freeze; its aggregate results are pending. Do not pool cohorts or attribute previous numbers to the new method.
+- `summary.json` and `interpretation.json` record the historical native-feedback-v2 evaluation (authors 112/120, v2 111/120).
+- `v3-summary.json` records the completed terminal-evidence-v3 evaluation (authors 111/120, v3 113/120). It includes the new cohort’s task counts, usage, paired outcomes, source hashes and parity limitation.

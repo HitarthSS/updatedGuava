@@ -4,14 +4,16 @@ Training-free completion verification around the frozen [Guava agent](https://ar
 
 ## Status and results
 
-**v3 is a new experiment. Its final success rate is not available yet.** It must pass the seen development gate before the fresh 120-case comparison starts. See [design and protocol](DESIGN_V3.md).
+**V3 completed the 120-case matched evaluation.** It rescued two episodes on the apple/juice reverse-order task with zero regressions across the matched cases.
 
 | Experiment | Authors’ harness | My harness |
 | --- | --- | --- |
 | Previous native-feedback v2, 120 starts | 112/120 (93.33%) | 111/120 (92.50%) |
-| Terminal-evidence v3 | Pending matched evaluation | Pending matched evaluation |
+| Terminal-evidence v3, 120 fresh starts | 111/120 (92.50%) | 113/120 (94.17%) |
 
-The paper reports 90.8% on 240 unseen-task episodes. Our 120-case evaluations are reduced subsets with different starts. Original source/adapter replay matches turns 0–4 but diverges at turn 5; comparisons remain **provisional adapter comparisons**, not exact paper reproductions. The old v2 code/registration is preserved in [its original commit](https://github.com/HitarthSS/updatedGuava/tree/a43dba8e27108087547e20dc39dd904781b81611). Files in `results/summary.json` and `results/interpretation.json` describe v2 until a separately labeled v3 report is added.
+V3 gained **1.67 percentage points** with 14.0% more VLM calls and 21.4% more tokens. The paired result is statistically inconclusive (exact McNemar p = 0.50). See the [evaluation report](EVALUATION.md) and [audited results](results/v3-summary.json).
+
+The paper reports 90.8% on 240 unseen-task episodes. Our 120-case evaluations used fresh starts on a reduced subset. Original source/adapter replay matched turns 0–4 and diverged at turn 5, so the adapter comparison remains provisional. The v2 code and registration are available at the [v2 commit](https://github.com/HitarthSS/updatedGuava/tree/a43dba8e27108087547e20dc39dd904781b81611).
 
 ## What v3 changes
 
@@ -41,7 +43,7 @@ python tools/verify_export.py
 
 41 package tests and 19 runner/audit tests passed in the existing evaluation environment. HarnessStudio admission tiers 0 and 1 passed. These checks do not establish real-simulator accuracy or original-source parity.
 
-## New evaluation
+## Evaluation protocol
 
 - One seen smoke case, then seven seen tasks × two development starts.
 - Require no development success deficit, no horizon/provenance violations; freeze the design before final evaluation.
@@ -50,6 +52,6 @@ python tools/verify_export.py
 - Preserve 25/30 semantic turns per task and the released 500,000 native control-call horizon; no multiplier. Inspection and review consume existing turns.
 - Audit exact physical starts and bounded initial-render roundoff. Keep the unresolved source/adapter parity gap visible.
 
-`run_campaign.py` runs the gated comparison after upstream runtime/assets are prepared; it is not a universal installer. The current Sudarshan retry uses GPU 5 for the frozen model/simulation and GPU 6 for SAM3. GPU indices are allocation-specific.
+`run_campaign.py` runs the gated comparison after the upstream runtime and assets are prepared. The evaluation ran on GPU 5 for Guava and simulation, and GPU 6 for SAM3.
 
-[Attribution](NOTICE.md) · [Design](DESIGN_V3.md) · [Previous evaluation limitations](EVALUATION.md)
+[Attribution](NOTICE.md) · [Design](DESIGN_V3.md) · [Evaluation](EVALUATION.md)
